@@ -7,15 +7,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Install cowsay
-        run: sudo apt-get install -y cowsay
-
-        
-      - name: Execute ASCII Artwork
-        run: cowsay -f dragon "Run for cover... the dragon is here!" >> dragon.txt
-
-      - name: Test file exists
-        run: grep -i "dragon" dragon.txt
-
-      - name: Read file
-        run: cat dragon.txt
+      - name: Executing Shell script
+        run: ./Ascii_script.sh
