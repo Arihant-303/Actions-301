@@ -1,0 +1,32 @@
+name: This is third workflow
+on: [push]
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Cowsay
+        run: sudo apt-get install -y cowsay
+
+      - name: Run Cowsay
+        run: cowsay -f dragon "Hello from the third workflow!This is dragon speaking!" >> dragon.txt
+
+      - name: Sleep for 20 seconds
+        run: sleep 20
+
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 10 seconds
+        run: sleep 10
+
+      - name: Test file exists
+        run: grep -i "dragon" dragon.txt
+
+  deploy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read file
+        run: cat dragon.txt
+
+      - name: Deploy message
+        run: echo "Deploying the message from dragon.txt"
