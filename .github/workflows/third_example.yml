@@ -20,16 +20,16 @@ jobs:
     needs: build_job
     runs-on: ubuntu-latest
     steps:
-      - name: Download Dragon text file as artifact
-        uses: actions/download-artifact@v4
-        with:
-            name: dragon-text-file
+    #   - name: Download Dragon text file as artifact
+    #     uses: actions/download-artifact@v4
+    #     with:
+    #         name: dragon-text-file
 
       - name: Test file exists
         run: grep -i "dragon" dragon.txt
 
   deploy_job:
-    needs: test_job
+    needs: [test_job]
     runs-on: ubuntu-latest
     steps:
 
