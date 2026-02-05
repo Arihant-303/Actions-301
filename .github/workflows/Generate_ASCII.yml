@@ -8,4 +8,6 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Executing Shell script
-        run: ./Ascii_script.sh
+        run: |
+            chmod +x ./Ascii_script.sh
+            ./Ascii_script.sh
