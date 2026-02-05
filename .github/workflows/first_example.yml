@@ -12,3 +12,6 @@ jobs:
             echo "Hello, welcome to my first GitHub Actions workflow!"
             ls -ltra
             cat README.md
+        
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "Run for cover... the dragon is here!" >> dragon.txt
